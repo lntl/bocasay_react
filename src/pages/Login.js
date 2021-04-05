@@ -4,25 +4,24 @@ import { Signin } from '../admin';
 function Login(props) {
   const email = useFormInput('');
   const password = useFormInput('');
-  const [loading, setLoading] = useState(false);
  
   const handleSignin = () => {
-    Signin();
-    props.history.push('/dashboard');
+    Signin(email.value,password.value);
   }
  
   return (
-    <div>
-      Login<br /><br />
-      <div>
-        Email<br />
-        <input type="email" {...email} placeholder="Email" />
+    <div id="login" className="wrap-log">
+      <div className="fx-col">
+        <div className="fx-col chmp">
+          <label>Email</label>
+          <input type="email" {...email} placeholder="Email" />
+        </div>
+        <div className="fx-col chmp">
+          <label>Password</label>
+          <input type="password" {...password} placeholder="Password" />
+        </div>
       </div>
-      <div style={{ marginTop: 10 }}>
-        Password<br />
-        <input type="password" {...password} placeholder="Password" />
-      </div>
-      <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleSignin} disabled={loading} /><br />
+      <input type="button" value='Sign in' onClick={handleSignin}  /><br />
     </div>
   );
 }

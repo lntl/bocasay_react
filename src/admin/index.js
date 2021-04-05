@@ -1,22 +1,20 @@
 import axios from 'axios';
-const TOKEN_KEY = 'jwt';
+const JWT = 'jwt';
 
-export const Signin = () => {
-    localStorage.setItem(TOKEN_KEY, 'token decode JWT recived by node api');
-    // axios.post('').then(res => {
-    //     const persons = res.data;
-    //     this.setState({ persons });
-    // })
+export const Signin = (email,password) => {
+    //localStorage.setItem(JWT, 'token decode JWT recived by node api');
+    axios.post('http://localhost:3000/auth/getjwt', {email,password}).then(res => {
+        if(res.data!=false) localStorage.setItem(JWT, res.data); window.location.reload(false);
+    })
 }
 
 export const logout = () => {
-    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(JWT);
 }
 
 export const isLogin = () => {
-    if (localStorage.getItem(TOKEN_KEY)) {
+    if (localStorage.getItem(JWT)!= undefined) {
         return true;
     }
-
     return false;
 }

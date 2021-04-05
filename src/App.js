@@ -4,30 +4,17 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Login from './pages/Login';
 import Dash from './pages/Dashboard';
-import { logout,isLogin } from './admin';
-import { useHistory } from "react-router-dom";
+import { logout} from './admin';
 import './App.css';
 
 function App() {
-
-  let history = useHistory();
 
   const handleLogout = (e) => {
     logout();
     window.location.reload(false);
   }
-  const handleisLoged = ()=>{
-    console.log(isLogin())
-    
-  }
-  useEffect(() => {
-    handleisLoged()
-  }, [])
-  
-
   return (
     <div className="App">
-      <h1>Bocasay webview</h1>
       <BrowserRouter>
         <div>
           <div className="header">

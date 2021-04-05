@@ -1,11 +1,15 @@
 import React from 'react';
- 
+import ArticlesList from '../components/ArticlesList'; 
+
+
 function Dashboard() {
   return (
-    <div>
-      You'r connected
+    <div id="dashboard">
+      <ArticlesList/>
     </div>
   );
 }
+
+
  
 export default Dashboard;
