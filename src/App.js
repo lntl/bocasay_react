@@ -1,4 +1,4 @@
-import React,{ useState, useEffect }  from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <div>
           <div className="header">
-            <NavLink activeClassName="active" to="/">Login</NavLink>
-            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink>
+            {/* <NavLink activeClassName="active" to="/">Login</NavLink>
+            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink> */}
             <button onClick={handleLogout} >logut</button>
           </div>
           <div className="content">
